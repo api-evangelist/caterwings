@@ -1,22 +1,58 @@
 aid: caterwings
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/caterwings.png
 name: Caterwings
-description: 'Caterwings is a company surfaced as a portfolio company of hv-capital and added to the API
-  Evangelist network as a stub for enrichment. Sector: consumer; marketplace. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: 'Caterwings was a European online catering marketplace connecting businesses with local caterers
+  for office and event food ordering, surfaced in the API Evangelist network as a portfolio company of HV
+  Capital. As of the July 2026 enrichment probe the brand appears to be retired: caterwings.com no longer
+  serves a site (AWS S3 responds 403 AllAccessDisabled) and caterwings.de redirects to www.eatfirst.com, the
+  corporate-catering platform operated by B2B Food Group of Berlin, which also runs the EatFirst and Feedr
+  brands. No developer portal, API documentation, OpenAPI definition, SDK package, or GitHub organization
+  could be found for Caterwings; this repo is retained as a historical network record with no live API surface.'
 url: https://raw.githubusercontent.com/api-evangelist/caterwings/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - hv-capital
 x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier-reason: no-api-surface
+x-status: defunct
+x-successor: https://www.eatfirst.com/
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
-- Consumer; Marketplace
+- Consumer
+- Marketplace
+- Catering
+- Food Delivery
+- Food and Beverage
+- Europe
+- Defunct
 apis: []
+common:
+- type: Website
+  url: https://caterwings.de/
+- type: DomainSecurity
+  url: security/caterwings-domain-security.yml
+- type: WellKnown
+  url: well-known/caterwings-well-known.yml
+x-enrichment:
+  date: '2026-07-20'
+  status: minimal
+  artifacts_added: 2
+  pass: local-v1
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

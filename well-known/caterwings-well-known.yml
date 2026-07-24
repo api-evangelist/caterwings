@@ -1,0 +1,109 @@
+generated: '2026-07-20'
+method: probed
+source: live HTTP probes of Caterwings hosts, 2026-07-20
+summary: >-
+  No well-known artifacts are published for Caterwings. The caterwings.com host is
+  decommissioned (AWS S3 returns 403 AllAccessDisabled for every path). The caterwings.de
+  host redirects all paths to https://www.eatfirst.com/ and its successor site answers
+  unknown paths with a soft-404: every probed path returned HTTP 200 but served the same
+  36,964-byte Webflow marketing homepage (content-type text/html) rather than the requested
+  artifact. Status codes alone are therefore misleading here; each 200 below was
+  content-verified and rejected as a catch-all. Nothing was saved.
+hosts:
+- host: caterwings.com
+  note: decommissioned; AWS S3 403 AllAccessDisabled on all paths
+  probes:
+  - path: /.well-known/security.txt
+    status: 403
+    found: false
+  - path: /.well-known/openid-configuration
+    status: 403
+    found: false
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+    found: false
+  - path: /.well-known/api-catalog
+    status: 403
+    found: false
+  - path: /.well-known/ai-plugin.json
+    status: 403
+    found: false
+  - path: /llms.txt
+    status: 403
+    found: false
+  - path: /openapi.json
+    status: 403
+    found: false
+- host: caterwings.de
+  note: redirects all paths to https://www.eatfirst.com/ (soft-404 catch-all)
+  probes:
+  - path: /.well-known/security.txt
+    status: 200
+    found: false
+    reason: redirected to www.eatfirst.com homepage, text/html
+  - path: /.well-known/openid-configuration
+    status: 200
+    found: false
+    reason: redirected to www.eatfirst.com homepage, text/html
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    found: false
+    reason: redirected to www.eatfirst.com homepage, text/html
+  - path: /.well-known/api-catalog
+    status: 200
+    found: false
+    reason: redirected to www.eatfirst.com homepage, text/html
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    found: false
+    reason: redirected to www.eatfirst.com homepage, text/html
+  - path: /llms.txt
+    status: 200
+    found: false
+    reason: redirected to www.eatfirst.com homepage, text/html
+  - path: /openapi.json
+    status: 200
+    found: false
+    reason: redirected to www.eatfirst.com homepage, text/html
+- host: www.eatfirst.com
+  note: successor site (B2B Food Group); Webflow, no developer surface
+  probes:
+  - path: /.well-known/security.txt
+    status: 404
+    found: false
+  - path: /.well-known/openid-configuration
+    status: 404
+    found: false
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    found: false
+  - path: /.well-known/api-catalog
+    status: 404
+    found: false
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    found: false
+  - path: /llms.txt
+    status: 200
+    found: false
+    reason: soft-404, served Webflow homepage HTML not llms.txt
+  - path: /openapi.json
+    status: 200
+    found: false
+    reason: soft-404, served Webflow homepage HTML not JSON
+unresolved_hosts:
+- api.caterwings.com
+- developers.caterwings.com
+- docs.caterwings.com
+- caterwings.co.uk
+registries_checked:
+- registry: npm
+  query: caterwings
+  results: 0
+- registry: PyPI
+  query: caterwings
+  results: 0
+- registry: GitHub
+  query: caterwings
+  results: 4
+  note: all third-party/unaffiliated repos; no Caterwings GitHub organization exists
