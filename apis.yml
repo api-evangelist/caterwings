@@ -21,6 +21,8 @@ accessModel:
   source: []
   generated: '2026-07-22'
   method: derived
+  source:
+  - {url: 'https://caterwings.de/', status: 301, note: 'declared website redirects to https://www.eatfirst.com/ — a different registrable domain (caterwings.de -> eatfirst.com), possible rename or acquisition (probed 2026-09-03, roadmap#169)'}
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/caterwings.png
 name: Caterwings
 description: 'Caterwings was a European online catering marketplace connecting businesses with local caterers
